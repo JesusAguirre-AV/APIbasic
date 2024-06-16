@@ -1,5 +1,6 @@
 package pet.store.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -33,10 +34,10 @@ public class PetStore {
 	@JoinTable(name = "pet_store_customer", joinColumns
 	= @JoinColumn(name = "pet_store_id"),
 	inverseJoinColumns = @JoinColumn(name = "customer_id"))
-	Set<Customer> customers;
+	Set<Customer> customers = new HashSet<>();
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy = "petStore", cascade = 
 			CascadeType.ALL, orphanRemoval = true)
-	Set<Employee> employees;
+	Set<Employee> employees = new HashSet<>();
 }
