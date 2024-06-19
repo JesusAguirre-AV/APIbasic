@@ -1,20 +1,10 @@
 package pet.store.controller.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import pet.store.entity.Customer;
 import pet.store.entity.Employee;
 import pet.store.entity.PetStore;
@@ -31,9 +21,9 @@ public class PetStoreData {
 	private String petStoreZip;
 	private String petStorePhone;
 	
-	private Set<PetStoreCustomer> customers;
+	private Set<PetStoreCustomer> customers = new HashSet<>();
 	
-	private Set<PetStoreEmployee> employees;
+	private Set<PetStoreEmployee> employees = new HashSet<>();
 	
 	public PetStoreData(PetStore petStore){
 		petStoreId = petStore.getPetStoreId();
